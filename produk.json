@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name":"Pumpkin Bread",
+        "info": "\"Topped with crunchy walnut streusel\"",
+        "price": 15,
+        "price2": 15,
+        "image": "image/1.png"
+    },
+    {
+        "id": 2,
+        "name":"Sweet Potato Bread",
+        "info": "\"Topped with creamy frosting and crunchy walnuts\"",
+        "price": 20,
+        "price2": 15,
+        "image": "image/2.png"
+    },
+    {
+        "id": 3,
+        "name":"Chocolate Chips Bread",
+        "info": "\"Chocolate chips inside and outside\"",
+        "price": 200,
+        "price2": 15,
+        "image": "image/3.png"
+    },
+    {
+        "id": 4,
+        "name":"⁠⁠Carrot Cake",
+        "info": "\"Topped with cream cheese frosting\"",
+        "price": 20,
+        "price2": 15,
+        "image": "image/4.png"
+    },
+    {
+        "id": 5,
+        "name":"Apple Crumble Cake",
+        "info": "\"Topped with crumbl toppings and glaze\"",
+        "price": 30,
+        "price2": 15,
+        "image": "image/5.png"
+    }
+    
+
+]

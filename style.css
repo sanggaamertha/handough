@@ -1,0 +1,358 @@
+body{
+    margin: 0;
+    font-family: Poppins;
+    background-color: #67441a;
+}
+.container{
+    width: 900px;
+    margin: auto;
+    max-width: 90vw;
+    text-align: center;
+    padding-top: 10px;
+    transition: transform .5s;
+}
+svg{
+    width: 30px;
+    color: #eee;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
+    padding: 20px 0;
+}
+.icon-cart{
+    position: relative;
+    
+}
+.logo{
+   
+    width: 90px;
+    border-radius: 50%;
+}
+.icon-cart2 {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    margin-bottom: 7px;
+    background-color: #956122;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #2a2222;
+    
+    transform-origin: center; /* Menyesuaikan titik pusat transformasi */
+}
+
+/* Ketika tombol sedang aktif */
+
+.kiri {
+    margin-right: auto; /* Menggeser elemen ke paling kiri */
+}
+
+.kanan {
+    margin-left: auto;
+    margin-right: 55px; /* Menggeser elemen ke paling kanan */
+}
+
+.kiri .textcart {
+    margin-top: -4px; /* Atur jarak antara elemen */
+    margin-left: 55px;
+    color: #fff;
+}
+
+.kanan .totalharga,
+.kanan svg {
+    display: inline-block; /* Mengatur kedua elemen agar berdampingan secara horizontal */
+    vertical-align: middle; /* Mengatur posisi vertikal agar berdampingan */
+}
+.totalharga{
+    color: #fff;
+}
+
+.icon-cart span{
+    position: absolute;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    top: 50%;
+    right: -20px;
+}
+.title{
+    font-size: xx-large;
+    color: #eee;
+}
+.listProduct .item img{
+    width: 90%;
+    filter: drop-shadow(0 50px 20px rgba(98, 57, 25, 0.6));
+}
+.listProduct .item .namanya{
+    font-size: 20px;
+    font-style: italic;
+    
+    
+}
+.listProduct .item .info{
+    padding-bottom: 20px;
+    
+    
+}
+.listProduct{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding-bottom: 18%;
+}
+.listProduct .item{
+    background-color: #EEEEE6;
+    padding: 20px;
+    border-radius: 20px;
+}
+.listProduct .item h2{
+    font-weight: 500;
+    font-size: large;
+}
+.listProduct .item .price{
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+.listProduct .item .price2{
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+.listProduct .item button{
+    background-color: #353432;
+    color: #eee;
+    width: 80%;
+    font-size: 14px;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    border-radius: 20px;
+}
+
+/* cart */
+.cartTab{
+    width: 450px;
+    background-color: #92795a;
+    color: #eee;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    bottom: 0;
+    display: grid;
+    border-radius: 20px;
+    grid-template-rows: 70px 1fr 70px;
+    transition: .5s;
+}
+body.showCart .cartTab{
+    right: 0;
+}
+body.showCart .container{
+    transform: translateX(-250px);
+}
+.cartTab h1{
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+.cartTab .btn{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.cartTab button{
+    background-color: #E8BC0E;
+    border: none;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+}
+.cartTab .close{
+    background-color: #eee;
+}
+.listCart .item img{
+    width: 100%;
+}
+.listCart{
+    margin-left: 5px;
+}
+.listCart .item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+.listCart .quantity span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    color: #555;
+    cursor: pointer;
+}
+.listCart .quantity span:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+    cursor: auto;
+}
+.listCart .item:nth-child(even){
+    background-color: #eee1;
+}
+
+.addCart:active {
+    transform: scale(0.8); /* Ubah ukuran tombol sedikit saat ditekan */
+    transition: transform 0.1s ease-in-out; /* Berikan efek transisi agar lebih halus */
+}
+.close:active {
+    transform: scale(0.8); /* Ubah ukuran tombol sedikit saat ditekan */
+    transition: transform 0.1s ease-in-out;
+
+}
+
+.listCart{
+    overflow: auto;
+}
+.listCart::-webkit-scrollbar{
+    width: 0;
+}
+
+
+.icon-cart2 span{
+    position: absolute;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    top: 8%;
+    right: 42px;
+}
+svg{
+    width: 30px;
+    color: #eee;
+}
+@media only screen and (max-width: 992px) {
+    .listProduct{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+    .listProduct{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .icon-cart2 span{
+        position: absolute;
+        background-color: red;
+        width: 23px;
+        height: 23px;
+        display: flex;
+        font-size: 14px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color: #fff;
+        top: 10%;
+        right: 13px;
+    }
+    svg{
+        width: 25px;
+        color: #eee;
+    }
+
+    .cartTab{
+        width: 380px;
+        background-color: #92795a;
+        color: #eee;
+        position: fixed;
+        top: 0;
+        right: -380px;
+        bottom: 0;
+        display: grid;
+        border-radius: 20px;
+        grid-template-rows: 80px 1fr 70px;
+        transition: .5s;
+    }
+    .name{
+        font-size: 15px;
+       
+        width: 100px;
+    }
+    .totalPrice{
+        width: 40px;
+        margin-left: -30px;
+        
+    }
+    .quantity{
+        margin-left: -20px;
+    }
+
+
+    .icon-cart2 {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        margin-bottom: 7px;
+        border-radius: 20px;
+        background-color: #956122;
+        
+        display: flex;
+        justify-content: center; /* Mengatur elemen menjadi di tengah */
+        align-items: center;
+        padding: 10px; /* Sesuaikan padding sesuai kebutuhan */
+         /* Atur warna latar belakang sesuai kebutuhan */
+        border: 2px solid #2a2222;
+    }
+    
+    .kiri {
+        margin-right: auto; /* Menggeser elemen ke paling kiri */
+    }
+    
+    .kanan {
+        margin-left: auto;
+        margin-right: 20px; /* Menggeser elemen ke paling kanan */
+    }
+    
+    .kiri .textcart {
+        margin-top: -3px; /* Atur jarak antara elemen */
+        margin-left: 25px;
+        color: #fff;
+    }
+    
+    .kanan .totalharga,
+    .kanan svg {
+        display: inline-block; /* Mengatur kedua elemen agar berdampingan secara horizontal */
+        vertical-align: middle; /* Mengatur posisi vertikal agar berdampingan */
+    }
+
+    .logo{
+   
+        width: 60px;
+        border-radius: 50%;
+    }
+}
