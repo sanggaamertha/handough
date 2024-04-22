@@ -21,7 +21,6 @@ closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 })
 checkOutCart.addEventListener('click', () => {
-    // Pesan untuk dikirim ke WhatsApp
     let message = 'Pesanan:\n';
     cart.forEach(item => {
         let positionProduct = products.findIndex(value => value.id == item.product_id);
@@ -31,19 +30,16 @@ checkOutCart.addEventListener('click', () => {
         message += `${sizeText}${info.name} x${item.quantity} - Rp.${totalPrice}K\n`;
     });
 
-    // Menambahkan total item dan total harga ke pesan
     const totalItems = 'Total items: ' + qq1;
     const totalPrice = 'Total price: Rp.' + hh + 'K';
     message += `${totalItems}\n${totalPrice}`;
 
-    // Mengkodekan pesan untuk URL
     const encodedMessage = encodeURIComponent(message);
-    
-    // Menyiapkan URL WhatsApp dengan nomor tujuan dan pesan
-    const whatsappURL = 'https://api.whatsapp.com/send?phone=6282144206195&text=' + encodedMessage;
+    const phoneNumber = '6282144206195'; // Nomor WhatsApp tujuan
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-    // Membuka tautan WhatsApp di tab atau jendela baru
-    window.open(whatsappURL, '_blank');
+    // Redirect ke WhatsApp ketika tombol ditekan
+    window.location.href = whatsappURL;
 });
 
 
