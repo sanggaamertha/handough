@@ -21,9 +21,30 @@ closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 })
 checkOutCart.addEventListener('click', () => {
-    body.classList.toggle('showCart');
-})
+    // Pesan untuk dikirim ke WhatsApp
+    let message = 'Pesanan:\n';
+    cart.forEach(item => {
+        let positionProduct = products.findIndex(value => value.id == item.product_id);
+        let info = products[positionProduct];
+        let sizeText = item.size === 'medium' ? 'Medium ' : 'Large ';
+        let totalPrice = item.quantity * (item.size === 'medium' ? info.price : info.price2);
+        message += `${sizeText}${info.name} x${item.quantity} - Rp.${totalPrice}K\n`;
+    });
 
+    // Menambahkan total item dan total harga ke pesan
+    const totalItems = 'Total items: ' + qq1;
+    const totalPrice = 'Total price: Rp.' + hh + 'K';
+    message += `${totalItems}\n${totalPrice}`;
+
+    // Mengkodekan pesan untuk URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Menyiapkan URL WhatsApp dengan nomor tujuan dan pesan
+    const whatsappURL = 'https://api.whatsapp.com/send?phone=6282144206195&text=' + encodedMessage;
+
+    // Membuka tautan WhatsApp di tab atau jendela baru
+    window.open(whatsappURL, '_blank');
+});
 
 
 
