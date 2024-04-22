@@ -21,25 +21,11 @@ closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 })
 checkOutCart.addEventListener('click', () => {
-    let message = 'Pesanan:\n';
-    cart.forEach(item => {
-        let positionProduct = products.findIndex(value => value.id == item.product_id);
-        let info = products[positionProduct];
-        let sizeText = item.size === 'medium' ? 'Medium ' : 'Large ';
-        let totalPrice = item.quantity * (item.size === 'medium' ? info.price : info.price2);
-        message += `${sizeText}${info.name} x${item.quantity} - Rp.${totalPrice}K\n`;
-    });
-
-    const totalItems = 'Total items: ' + qq1;
-    const totalPrice = 'Total price: Rp.' + hh + 'K';
-    message += `${totalItems}\n${totalPrice}`;
-
+    const message = 'hai';
+    const phoneNumber = '6282144206195'; // Ganti dengan nomor tujuan yang diinginkan
     const encodedMessage = encodeURIComponent(message);
-    const phoneNumber = '6282144206195'; // Nomor WhatsApp tujuan
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-    // Redirect ke WhatsApp ketika tombol ditekan
-    window.location.href = whatsappURL;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=hai`;
+    window.open(whatsappURL, '_blank');
 });
 
 
