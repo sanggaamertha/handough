@@ -22,12 +22,11 @@ closeCart.addEventListener('click', () => {
 })
 checkOutCart.addEventListener('click', () => {
     const message = 'hai';
-    const phoneNumber = '6282144206195'; // Ganti dengan nomor tujuan yang diinginkan
+    const phoneNumber = 6282144206195; 
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=hai`;
-    window.open(whatsappURL, '_blank');
+    document.location.href = (whatsappURL, '_blank');
 });
-
 
 
 const addDataToHTML = () => {
