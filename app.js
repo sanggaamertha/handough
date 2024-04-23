@@ -9,8 +9,13 @@ let checkOutCart = document.querySelector('.checkOut');
 
 let totalharganya = document.querySelector('.totalharga');
 let totalitem = document.querySelector('#items');
+
+let checkoutForm = document.getElementById('checkoutForm');
+checkoutForm.style.display = 'none';
+
 let products = [];
 let cart = [];
+let hh = '';
 
 
 iconCart.addEventListener('click', () => {
@@ -20,13 +25,55 @@ iconCart.addEventListener('click', () => {
 closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 })
+
+
+
 checkOutCart.addEventListener('click', () => {
-    const message = 'hai';
-    const phoneNumber = 6282144206195; 
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=hai`;
-    document.location.href = (whatsappURL, '_blank');
+    checkoutForm.style.display = 'block';
+    let message = 'Pesanan:\n';
+    let totalPrice ='';
+
+    cart.forEach(item => {
+        let positionProduct = products.findIndex(value => value.id == item.product_id);
+        let info = products[positionProduct];
+        let sizeText = item.size === 'medium' ? 'Medium ' : 'Large ';
+        let totalpricenya = item.quantity * (item.size === 'medium' ? info.price : info.price2);
+       
+        message += `${item.quantity} ${sizeText} ${info.name} ${totalpricenya}K\n`;
+    });
+
+    // Event listener untuk tombol "submit"
+    document.getElementById('checkout-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah perilaku default dari form submission
+    
+        let nama = document.getElementById('nama').value;
+        let noHp = document.getElementById('no-hp').value;
+        let alamat = document.getElementById('alamat').value;
+        let tanggal = document.getElementById('tanggal').value;
+        let jam = document.getElementById('jam').value;
+    
+        message += `Nama: ${nama}\nNo HP: ${noHp}\nAlamat: ${alamat}\nTanggal Pengambilan: ${tanggal}\nJam Pengambilan: ${jam}`;
+
+        totalPrice += `Total price: IDR ${hh} K`;
+        message += `\n${totalPrice}`;
+    
+        const phoneNumber = 6282144206195; 
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        document.location.href = whatsappURL;
+    });
+
+    // Event listener untuk tombol "cancel"
+    
 });
+document.getElementById('cancelbutton').addEventListener('click', function(event) {
+    event.preventDefault(); // Mencegah perilaku default dari tombol "cancel"
+    checkoutForm.style.display = 'none'; // Menyembunyikan formulir checkout
+});
+
+
+
+
 
 
 const addDataToHTML = () => {
@@ -44,7 +91,7 @@ const addDataToHTML = () => {
             <div class="price">Medium IDR ${product.price}K</div>
             <button class="addCart" data-size="medium">Add To Cart</button>
             <div class="price2">Large IDR ${product.price2}K</div>
-            <button class="addCart2" data-size="Large">Add To Cart</button>`;
+            <button class="addCart2" data-size="large">Add To Cart</button>`;
             listProductHTML.appendChild(newProduct);
         });
     }
@@ -127,7 +174,7 @@ const addCartToHTML = () => {
 
     // Menghitung total quantity dan harga
     let qq1 = totalQuantity.toString();
-    let hh = totalPricing.toString();
+    hh = totalPricing.toString();
     totalitem.textContent = qq1+" items";
     totalharganya.textContent = "IDR "+hh+"K"
     console.log("Total Quantity:", qq1);
