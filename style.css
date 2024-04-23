@@ -225,7 +225,10 @@ body.showCart .container{
     transition: transform 0.1s ease-in-out;
 
 }
-
+.addCart2:active {
+    transform: scale(0.8); /* Ubah ukuran tombol sedikit saat ditekan */
+    transition: transform 0.1s ease-in-out; /* Berikan efek transisi agar lebih halus */
+}
 .listCart{
     overflow: auto;
 }
@@ -233,6 +236,24 @@ body.showCart .container{
     width: 0;
 }
 
+.close{
+    border-radius: 15px;
+    height: 90%;
+    width: auto;
+    margin-right: 3%;
+    margin-left: 2%;
+    font-size: medium;
+    font-weight: bolder;
+}
+.checkOut{
+    border-radius: 15px;
+    height: 90%;
+    margin-right: 2%;
+    font-size: medium;
+    margin-left: 3%;
+    width: auto;
+    font-weight: bolder;
+}
 
 .icon-cart2 span{
     position: absolute;
@@ -252,6 +273,92 @@ svg{
     width: 30px;
     color: #eee;
 }
+
+
+
+
+
+
+
+#checkoutForm {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk judul h2 */
+.ha2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Styling untuk label */
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Styling untuk input dan textarea */
+input[type="text"],
+input[type="tel"],
+textarea,
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Styling untuk tombol Cancel */
+.cancel-btn {
+    background-color: #bbb;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #999;
+}
+
+/* Styling untuk tombol Submit */
+.submit-btn {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+
 @media only screen and (max-width: 992px) {
     .listProduct{
         grid-template-columns: repeat(3, 1fr);
